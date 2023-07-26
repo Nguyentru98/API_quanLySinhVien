@@ -8,7 +8,8 @@ declare class StudentController {
     delete: (req: Request, res: Response) => Promise<void>;
     finByName: (req: Request, res: Response) => Promise<void>;
     ASC: (req: Request, res: Response) => Promise<void>;
-    DSC: (req: Request, res: Response) => Promise<void>;
+    DESC: (req: Request, res: Response) => Promise<void>;
+    findStudents: (req: Request, res: Response) => Promise<void>;
 }
 declare const _default: StudentController;
 export default _default;

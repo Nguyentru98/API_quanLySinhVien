@@ -31,8 +31,12 @@ class StudentController {
             let data = await this.studentService.ASC();
             res.json(data);
         };
-        this.DSC = async (req, res) => {
-            let data = await this.studentService.DSC();
+        this.DESC = async (req, res) => {
+            let data = await this.studentService.DESC();
+            res.json(data);
+        };
+        this.findStudents = async (req, res) => {
+            let data = await this.studentService.findStudent(req.query.name);
             res.json(data);
         };
         this.studentService = studentService_1.default;

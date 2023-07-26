@@ -24,15 +24,28 @@ class studentservice {
     delete = async (id) => {
         return await this.Repository.delete(id)
     }
-    finByName = async (name) => {
-        return await this.Repository.finByName(name)
-    }
     ASC = async () => {
-        return await this.Repository.find({order: {socre: 'ASC'}})
+        return await this.Repository.find(
+            {
+                order: {score: 'ASC'}
+        })
     }
     DESC = async () => {
         return await this.Repository.find({order: {score: 'DESC'}})
     }
+    findStudent = async (name) => {
+        return await this.Repository.find({
+        relations : {
+            class : true
+        },
+        where : { 
+            
+             name : name
+            
+        }
+    });
+    }
+    
 }
 
 export default new studentservice();

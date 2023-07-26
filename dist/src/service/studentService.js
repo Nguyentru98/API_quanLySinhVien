@@ -21,14 +21,23 @@ class studentservice {
         this.delete = async (id) => {
             return await this.Repository.delete(id);
         };
-        this.finByName = async (name) => {
-            return await this.Repository.finByName(name);
-        };
         this.ASC = async () => {
-            return await this.Repository.find({ order: { socre: 'ASC' } });
+            return await this.Repository.find({
+                order: { score: 'ASC' }
+            });
         };
         this.DESC = async () => {
             return await this.Repository.find({ order: { score: 'DESC' } });
+        };
+        this.findStudent = async (name) => {
+            return await this.Repository.find({
+                relations: {
+                    class: true
+                },
+                where: {
+                    name: name
+                }
+            });
         };
         this.Repository = data_source_1.AppDataSource.getRepository(Students_1.Students);
     }

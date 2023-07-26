@@ -34,9 +34,14 @@ class StudentController {
         let data = await this.studentService.ASC()
         res.json(data);
     }
-    DSC = async(req: Request, res: Response)=>{
-        let data = await this.studentService.DSC()
+    DESC = async(req: Request, res: Response)=>{
+        let data = await this.studentService.DESC()
         res.json(data);
     }
+    findStudents = async(req: Request, res: Response)=>{
+        let data = await this.studentService.findStudent(req.query.name)
+        res.json(data); 
+    }
+
 }
 export default new StudentController();
